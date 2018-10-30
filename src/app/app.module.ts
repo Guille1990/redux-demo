@@ -11,6 +11,14 @@ import { FatherComponent } from './components/father/father.component';
 import { ChildComponent } from './components/child/child.component';
 import { GrandchildComponent } from './components/grandchild/grandchild.component';
 
+// store
+import { StoreModule } from '@ngrx/store';
+import { appReducer } from './store/app.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
+// environments
+import { environment } from 'src/environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +30,12 @@ import { GrandchildComponent } from './components/grandchild/grandchild.componen
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialExportModule
+    MaterialExportModule,
+    StoreModule.forRoot(appReducer),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
