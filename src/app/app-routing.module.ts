@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { FatherComponent } from './components/father/father.component';
 
 const routes: Routes = [
-  { path: 'demo', loadChildren: './demo/demo.module#DemoModule' },
-  { path: '**', pathMatch: 'full', redirectTo: '/demo' }
+  { path: '', component: FatherComponent }
 ];
 
 @NgModule({
