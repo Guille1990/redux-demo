@@ -306,6 +306,16 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@ngrx/store-devtools@^6.1.1":
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-6.1.1.tgz#43894dda299f13a86c56f99e5076ba617513b2d5"
+  integrity sha512-qKw9kiFqT7UwA9Mfd3vbeuZD/hkzYl752B3Rij27AVlT/xmL6XCjBJisEmQLamrgoJtiWWYJjEGkZ5AugE8Ctw==
+
+"@ngrx/store@^6.1.1":
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-6.1.1.tgz#35a3d87f545df4d6a544087f5fa45e143f0a0e90"
+  integrity sha512-1XFTE5nB3sLNoXZ6pl1kCfoy3NgJOU9G/QTPDPSMkrOkIZuqmylczmgRedSWwdB/dz8tclIZa5tA24dE+N/apA==
+
 "@ngtools/webpack@7.0.3":
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-7.0.3.tgz#96bc0d94e9a8ac84eb34cf81c59fdd21bfbd18e3"
