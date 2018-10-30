@@ -1,6 +1,10 @@
 <mat-card class="container">
-  <h2>Grandchild</h2>
+  <h2>Nieto</h2>
   <h3>contador: {{ count }}</h3>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Valor" type="number" [(ngModel)]="val" value="">
+  </mat-form-field>
 
   <div class="button-container">
     <button mat-raised-button color="accent" (click)="getCountValue()">Obtener valor de servicio</button>

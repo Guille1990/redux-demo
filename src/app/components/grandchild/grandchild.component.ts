@@ -1,5 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CountService } from '../../services/count.service';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.reducer';
+import { LoadCountAction } from 'src/app/store/actions';
 
 @Component({
   selector: 'app-grandchild',
@@ -7,19 +10,23 @@ import { CountService } from '../../services/count.service';
   styleUrls: ['./grandchild.component.css']
 })
 export class GrandchildComponent implements OnInit {
-  @Input() count: number;
-  @Output() countChange = new EventEmitter<number>();
+  public count: number;
+  public val: any;
 
   constructor(
-    private countService: CountService
+    private store: Store<AppState>
   ) { }
 
   ngOnInit() {
+    this.store.select('count').subscribe(state => this.count = state.counter);
   }
 
-  async getCountValue () {
-    this.count = await this.countService.getCount();
-    this.countChange.emit(this.count);
+  getCountValue () {
+    if (this.val !== '' ) {
+      const action = new LoadCountAction(this.val);
+      this.store.dispatch(action);
+      this.val = '';
+    }
   }
 
 }

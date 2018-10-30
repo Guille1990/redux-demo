@@ -1,4 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.reducer';
+import { IncreaseCountAction, DecreaseCountAction } from 'src/app/store/actions';
 
 @Component({
   selector: 'app-child',
@@ -6,27 +9,23 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./child.component.css']
 })
 export class ChildComponent implements OnInit {
-  @Input() count: number;
-  @Output() countChange = new EventEmitter<number>();
+  public count: number;
 
-  constructor() { }
+  constructor(
+    private store: Store<AppState>
+  ) { }
 
   ngOnInit() {
-
+    this.store.select('count').subscribe(state => this.count = state.counter);
   }
 
   increase () {
-    this.count++;
-    this.countChange.emit(this.count);
+    const action = new IncreaseCountAction();
+    this.store.dispatch(action);
   }
 
   decrease () {
-    this.count--;
-    this.countChange.emit(this.count);
-  }
-
-  countChangeHandler (event) {
-    this.count = event;
-    this.countChange.emit(this.count);
+    const action = new DecreaseCountAction();
+    this.store.dispatch(action);
   }
 }

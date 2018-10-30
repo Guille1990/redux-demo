@@ -15,9 +15,14 @@ import { GrandchildComponent } from './components/grandchild/grandchild.componen
 import { StoreModule } from '@ngrx/store';
 import { appReducer } from './store/app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { effectsArr } from './store/effects';
 
 // environments
 import { environment } from 'src/environments/environment';
+
+// angular/form
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,8 +35,10 @@ import { environment } from 'src/environments/environment';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     MaterialExportModule,
     StoreModule.forRoot(appReducer),
+    EffectsModule.forRoot(effectsArr),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
