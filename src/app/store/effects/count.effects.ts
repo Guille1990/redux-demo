@@ -19,7 +19,6 @@ export class CountEffects {
         return this.countService.getCount(val)
           .then(number => new LoadCountSuccessAction(number))
           .catch(err => {
-            console.log(err);
             return new LoadCountErrorAction(err);
           });
       })
