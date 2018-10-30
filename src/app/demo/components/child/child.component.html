@@ -1,0 +1,17 @@
+<mat-card class="container">
+  <h2>Hijo</h2>
+
+  <h3>contador: {{ count }}</h3>
+
+  <div class="button-container">
+    <button mat-raised-button color="primary" (click)="increase()">Incrementar</button>
+    <button mat-raised-button color="accent" (click)="decrease()">Decrementar</button>
+  </div>
+</mat-card>
+
+<br>
+<app-grandchild
+  [count]="count"
+  (countChange)="countChangeHandler($event)"
+>
+</app-grandchild>
